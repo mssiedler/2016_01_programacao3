@@ -3,11 +3,8 @@ package org.apache.jsp.categoria;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import modelo.Categoria;
-import java.util.List;
-import dao.CategoriaDAO;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class upd_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -52,10 +49,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -69,66 +62,22 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <a href=\"../categoria\">Categoria</a> - \n");
       out.write("            <a href=\"../regiao\">Região</a>\n");
       out.write("        </nav>");
-      out.write('\n');
-      out.write('\n');
-
-    //Instanciar a DAO
-    CategoriaDAO dao = new CategoriaDAO();
-    //Chama o método que retorna 
-    //todos registros do banco de dados
-    List<Categoria> lista = dao.listar();
-    //percorre a lista ge categorias
-    //e exibe o nome
-    
-    
-
-
       out.write("\n");
-      out.write("        <h1 class=\"centro\">Categoria</h1>\n");
       out.write("        <div>\n");
-      out.write("                +<a href=\"add.jsp\">Novo</a><br />\n");
-      out.write("                <form>\n");
-      out.write("                    <input type=\"text\" placeholder=\"digite o texto da pesquisa\" />\n");
-      out.write("                    <input type=\"submit\" value=\"Pesquisar\"/><br />\n");
+      out.write("            <h1 class=\"centro\">Alteração de Categoria</h1>\n");
+      out.write("            \n");
+      out.write("            <div>\n");
+      out.write("                \n");
+      out.write("                <form action=\"upd-ok.jsp\" method=\"post\">\n");
+      out.write("                    <label>Nome:</label><input type=\"text\" value=\"xxx\"/><br />\n");
+      out.write("                    <input type=\"reset\" value=\"Limpar\" />\n");
+      out.write("                    <input type=\"submit\" value=\"Salvar\" />\n");
       out.write("                </form>\n");
-      out.write("                    <table>\n");
-      out.write("                        <tr>\n");
-      out.write("                            <th>Código</th>\n");
-      out.write("                            <th>Nome</th>\n");
-      out.write("                            <th>Ações</th>\n");
-      out.write("                        </tr>\n");
-      out.write("                        ");
-  
-                        for(Categoria item: lista)
-                        {
-                        
-      out.write("\n");
-      out.write("                        <tr>\n");
-      out.write("                            <td>");
-      out.print(item.getCodigo());
-      out.write("</td>\n");
-      out.write("                            <td>");
-      out.print(item.getNome());
-      out.write("</td>\n");
-      out.write("                            \n");
-      out.write("                            <td><a href=\"upd.jsp?codigo=");
-      out.print(item.getCodigo());
-      out.write("\">Editar</a>\n");
-      out.write("                                <a href=\"del-ok.jsp?codigo=");
-      out.print(item.getCodigo());
-      out.write("\">Excluir</a>\n");
-      out.write("                            </td>\n");
-      out.write("                            \n");
-      out.write("                        </tr>\n");
-      out.write("                        ");
-
-                        }
-                        
-      out.write("\n");
-      out.write("                    </table>\n");
-      out.write("                    \n");
-      out.write("               \n");
       out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

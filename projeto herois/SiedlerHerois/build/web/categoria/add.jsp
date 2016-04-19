@@ -5,7 +5,8 @@
             <div>
                 
                 <form action="add-ok.jsp" method="post">
-                    <label>Nome:</label><input type="text"/><br />
+                    <label>Nome:</label><input type="text" 
+                                     name="txtNome"/><br />
                     <input type="reset" value="Limpar" />
                     <input type="submit" value="Salvar" />
                 </form>

@@ -3,11 +3,22 @@ index_jsp.java
 JSP
 *S JSP
 *F
-+ 0 cabecalho.jsp
-categoria/../cabecalho.jsp
-+ 1 index.jsp
++ 0 index.jsp
 categoria/index.jsp
++ 1 cabecalho.jsp
+categoria/../cabecalho.jsp
 *L
-5,16:49
-1#1,32:65
+1,5:52
+5#1,16:56
+5#0,2:72
+9,10:76
+18,15:86
+33,3:102
+35,2:105
+37,2:107,3
+39:113
+40,2:114,3
+42,4:120
+46,2:125
+47,8:127
 *E

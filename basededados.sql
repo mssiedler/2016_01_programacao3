@@ -9,10 +9,10 @@
 CREATE TABLE despesas
 (
   descricao character varying,
-  valor double,
+  valor numeric(8,2),
   localdogasto character varying,
   id_despesas serial NOT NULL
-);
+)
 
 CREATE TABLE pergunta
 (

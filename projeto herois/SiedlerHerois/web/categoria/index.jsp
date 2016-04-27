@@ -7,11 +7,23 @@
 <%
     //Instanciar a DAO
     CategoriaDAO dao = new CategoriaDAO();
-    //Chama o método que retorna 
-    //todos registros do banco de dados
-    List<Categoria> lista = dao.listar();
-    //percorre a lista ge categorias
-    //e exibe o nome
+    //Verificar se veio algo no filtro
+    //se vier passamos o filtro pra DAO
+    //se não tiver filtro traz todos registros
+    List<Categoria> lista;
+    if(request.getParameter("txtFiltro") !=null)
+    {
+        lista = dao.listar(request.getParameter("txtFiltro"));
+    }
+    else
+    {
+        //Chama o método que retorna 
+        //todos registros do banco de dados
+        lista = dao.listar();
+    }
+    
+    
+    
     
     
 
@@ -19,8 +31,10 @@
         <h1 class="centro">Categoria</h1>
         <div>
                 +<a href="add.jsp">Novo</a><br />
-                <form>
-                    <input type="text" placeholder="digite o texto da pesquisa" />
+                <form method="post">
+                    <!--  Monta o filtro  -->
+                    <input type="text" name="txtFiltro" 
+                           placeholder="digite o texto da pesquisa" />
                     <input type="submit" value="Pesquisar"/><br />
                 </form>
                     <table>

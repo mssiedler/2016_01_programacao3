@@ -74,11 +74,23 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
     //Instanciar a DAO
     CategoriaDAO dao = new CategoriaDAO();
-    //Chama o método que retorna 
-    //todos registros do banco de dados
-    List<Categoria> lista = dao.listar();
-    //percorre a lista ge categorias
-    //e exibe o nome
+    //Verificar se veio algo no filtro
+    //se vier passamos o filtro pra DAO
+    //se não tiver filtro traz todos registros
+    List<Categoria> lista;
+    if(request.getParameter("txtFiltro") !=null)
+    {
+        lista = dao.listar(request.getParameter("txtFiltro"));
+    }
+    else
+    {
+        //Chama o método que retorna 
+        //todos registros do banco de dados
+        lista = dao.listar();
+    }
+    
+    
+    
     
     
 
@@ -87,8 +99,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <h1 class=\"centro\">Categoria</h1>\n");
       out.write("        <div>\n");
       out.write("                +<a href=\"add.jsp\">Novo</a><br />\n");
-      out.write("                <form>\n");
-      out.write("                    <input type=\"text\" placeholder=\"digite o texto da pesquisa\" />\n");
+      out.write("                <form method=\"post\">\n");
+      out.write("                    <!--  Monta o filtro  -->\n");
+      out.write("                    <input type=\"text\" name=\"txtFiltro\" \n");
+      out.write("                           placeholder=\"digite o texto da pesquisa\" />\n");
       out.write("                    <input type=\"submit\" value=\"Pesquisar\"/><br />\n");
       out.write("                </form>\n");
       out.write("                    <table>\n");

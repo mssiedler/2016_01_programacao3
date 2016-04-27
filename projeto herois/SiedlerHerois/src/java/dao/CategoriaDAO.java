@@ -43,6 +43,11 @@ public class CategoriaDAO {
         return em.createNamedQuery("Categoria.findAll").getResultList();
     }
     
+    public List<Categoria> listar(String filtro) throws Exception{
+        
+        return em.createNamedQuery("Categoria.findFilter").setParameter("filtro", "%" + filtro + "%").getResultList();
+    }
+    
     public void alterar(Categoria obj) throws Exception {
         
         try {

@@ -9,6 +9,7 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import modelo.Categoria;
 import modelo.Heroi;
 
 /**
@@ -74,5 +75,8 @@ public class HeroiDAO {
         Conexao.closeConexao();
     }
     
-
+    public Heroi buscarPorChavePrimaria(Integer codigo)
+    {
+        return em.find(Heroi.class, codigo);
+    }
 }

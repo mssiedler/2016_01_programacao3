@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="modelo.Heroi"%>
 <%@page import="java.util.List"%>
 
@@ -5,6 +6,10 @@
 <%@include file="../cabecalho.jsp"%>
 
 <%
+    
+    
+    
+    
     //Instanciar a DAO
     HeroiDAO dao = new HeroiDAO();
     //Verificar se veio algo no filtro
@@ -44,6 +49,7 @@
                             <th>Codinome</th>
                             <th>Editora</th>
                             <th>Categoria</th>
+                             <th>Regiao</th>
                             <th>Ações</th>
                         </tr>
                         <%  
@@ -53,9 +59,10 @@
                         <tr>
                             <td><%=item.getCodigo()%></td>
                             <td><%=item.getNome()%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><%=item.getCodinome()%></td>
+                            <td><%=item.getEditora()%></td>
+                            <td><%=item.getCategoria()%></td>
+                            <td><%=item.getRegiao()%></td>
                             <td><a href="upd.jsp?codigo=<%=item.getCodigo()%>">Editar</a>
                                 <a href="del-ok.jsp?codigo=<%=item.getCodigo()%>">Excluir</a>
                             </td>

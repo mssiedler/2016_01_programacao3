@@ -112,6 +112,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <th>Codinome</th>\n");
       out.write("                            <th>Editora</th>\n");
       out.write("                            <th>Categoria</th>\n");
+      out.write("                             <th>Regiao</th>\n");
       out.write("                            <th>Ações</th>\n");
       out.write("                        </tr>\n");
       out.write("                        ");

@@ -1,11 +1,14 @@
+<%@page import="modelo.Editora"%>
+<%@page import="modelo.Categoria"%>
+<%@page import="modelo.Regiao"%>
 <%@page import="modelo.Heroi"%>
 <%@page import="dao.HeroiDAO"%>
 <%
     
- out.print(request.getParameter("selCategoria"));
+ //out.print(request.getParameter("selCategoria"));
    
     
- /*verifico se foi enviado o campo txtNome
+ //verifico se foi enviado o campo txtNome
  if(request.getParameter("txtNome") == null)
  {
      //volta para a tela da listagem
@@ -25,10 +28,30 @@
  Heroi obj = new Heroi();
  
  obj.setNome(request.getParameter("txtNome"));
+ obj.setCodinome(request.getParameter("txtCodinome"));
+ obj.setDescricao(request.getParameter("txtDescricao"));
+ obj.setForca(Integer.parseInt(request.getParameter("txtForca")));
+ obj.setInteligencia(Integer.parseInt(request.getParameter("txtInteligencia"))); 
+ obj.setHabilidadecombate(Integer.parseInt(request.getParameter("txtHabilidadeemCombate")));
+ obj.setProjecaoenergia(Integer.parseInt(request.getParameter("txtProjecaodeEnergia")));
+ obj.setVelocidade(Integer.parseInt(request.getParameter("txtVelocidade")));
  
+//AGORA AS FK
+Regiao regiao = new Regiao();
+regiao.setCodigo(Integer.parseInt(request.getParameter("selRegiao")));
+obj.setRegiao(regiao);
+
+Categoria categoria = new Categoria();
+categoria.setCodigo(Integer.parseInt(request.getParameter("selCategoria")));
+obj.setCategoria(categoria);
+
+Editora editora = new Editora();
+editora.setCodigo(Integer.parseInt(request.getParameter("selEditora")));
+obj.setEditora(editora);
+
  //executo o insert na DAO    
  dao.incluir(obj);
-         */
+         
  %>
 
 <%@include file="../cabecalho.jsp"%>

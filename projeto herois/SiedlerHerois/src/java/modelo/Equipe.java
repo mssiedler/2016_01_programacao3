@@ -113,7 +113,7 @@ public class Equipe implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Equipe[ codigo=" + codigo + " ]";
+        return nome;
     }
     
 }

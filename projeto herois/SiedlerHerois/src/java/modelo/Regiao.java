@@ -108,7 +108,7 @@ public class Regiao implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Regiao[ codigo=" + codigo + " ]";
+        return nome;
     }
     
 }

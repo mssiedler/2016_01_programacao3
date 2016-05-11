@@ -3,6 +3,7 @@ package org.apache.jsp.herois;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.Date;
 import modelo.Heroi;
 import java.util.List;
 import dao.HeroiDAO;
@@ -56,6 +57,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -72,6 +74,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('\n');
       out.write('\n');
 
+    
+    
+    
+    
     //Instanciar a DAO
     HeroiDAO dao = new HeroiDAO();
     //Verificar se veio algo no filtro
@@ -128,9 +134,18 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <td>");
       out.print(item.getNome());
       out.write("</td>\n");
-      out.write("                            <td></td>\n");
-      out.write("                            <td></td>\n");
-      out.write("                            <td></td>\n");
+      out.write("                            <td>");
+      out.print(item.getCodinome());
+      out.write("</td>\n");
+      out.write("                            <td>");
+      out.print(item.getEditora());
+      out.write("</td>\n");
+      out.write("                            <td>");
+      out.print(item.getCategoria());
+      out.write("</td>\n");
+      out.write("                            <td>");
+      out.print(item.getRegiao());
+      out.write("</td>\n");
       out.write("                            <td><a href=\"upd.jsp?codigo=");
       out.print(item.getCodigo());
       out.write("\">Editar</a>\n");

@@ -112,7 +112,7 @@ public class Editora implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Editora[ codigo=" + codigo + " ]";
+        return this.nome;
     }
     
 }

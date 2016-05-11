@@ -44,6 +44,9 @@ public class HeroiDAO {
         return em.createNamedQuery("Heroi.findAll").getResultList();
     }
     
+    public List<Heroi> listar(String filtro) throws Exception {
+        return em.createNamedQuery("Heroi.findFilter").setParameter("filtro", "%" + filtro + "%").getResultList();
+    }
     public void alterar(Heroi obj) throws Exception {
         
         try {

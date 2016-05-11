@@ -28,7 +28,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "heroi")
 @NamedQueries({
-    @NamedQuery(name = "Heroi.findAll", query = "SELECT h FROM Heroi h")})
+    @NamedQuery(name = "Heroi.findAll", query = "SELECT h FROM Heroi h"),
+    @NamedQuery(name = "Heroi.findFilter", query = "SELECT h FROM Heroi h where h.nome like :filtro"
+                                                    + " or h.codinome like :filtro "
+                                                    + " or h.editora.nome like :filtro"
+                                                    + " or h.regiao.nome like :filtro "
+                                                    + " or h.categoria.nome like :filtro")
+})
 public class Heroi implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

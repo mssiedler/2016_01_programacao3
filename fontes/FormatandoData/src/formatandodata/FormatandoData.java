@@ -23,6 +23,7 @@ public class FormatandoData {
         /*
             CONVERTENDO STRING PARA DATA --- upd-ok e no add-ok
         */
+        //no lugar do 12/11/2012 deve colocar  request.getParameter
         String dataStr = "12/11/2012";
         SimpleDateFormat sf1 = new SimpleDateFormat("dd/mm/yyyy");
         Date data = sf1.parse(dataStr);

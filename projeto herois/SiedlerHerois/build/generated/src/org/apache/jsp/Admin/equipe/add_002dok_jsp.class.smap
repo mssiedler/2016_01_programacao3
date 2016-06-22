@@ -1,0 +1,18 @@
+SMAP
+add_002dok_jsp.java
+JSP
+*S JSP
+*F
++ 0 add-ok.jsp
+Admin/equipe/add-ok.jsp
++ 1 cabecalho.jsp
+Admin/equipe/../cabecalho.jsp
+*L
+1,5:53
+5#1:57
+8,7:60
+14,18:67
+5#0,2:85
+8,14:88
+21,12:102
+*E

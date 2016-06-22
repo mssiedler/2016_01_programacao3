@@ -24,7 +24,7 @@ List<Editora> eLista = eDAO.listar();
             
             <div>
                 
-                <form action="add-ok.jsp" method="post">
+                <form action="add-ok.jsp" method="post" enctype="multipart/form-data">
                     <label>Nome:</label><input type="text" 
                                      name="txtNome"/><br />
                     <label>Codinome:</label><input type="text" 

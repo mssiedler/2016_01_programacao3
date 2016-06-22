@@ -50,6 +50,7 @@
                             <th>Editora</th>
                             <th>Categoria</th>
                              <th>Regiao</th>
+                             <th>foto</th>
                             <th>Ações</th>
                         </tr>
                         <%  
@@ -63,6 +64,7 @@
                             <td><%=item.getEditora()%></td>
                             <td><%=item.getCategoria()%></td>
                             <td><%=item.getRegiao()%></td>
+                            <td><img src="../../fotos/<%=item.getFoto()%>" width="20" height="20" /></td>
                             <td><a href="upd.jsp?codigo=<%=item.getCodigo()%>">Editar</a>
                                 <a href="del-ok.jsp?codigo=<%=item.getCodigo()%>">Excluir</a>
                             </td>

@@ -48,6 +48,11 @@ public class CategoriaDAO {
         return em.createNamedQuery("Categoria.findFilter").setParameter("filtro", "%" + filtro + "%").getResultList();
     }
     
+    public List<Categoria> listarNative() throws Exception{
+        
+         return em.createNamedQuery("nativeSQL").getResultList();
+    }
+    
     public void alterar(Categoria obj) throws Exception {
         
         try {

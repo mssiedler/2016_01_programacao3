@@ -19,7 +19,7 @@
     {
         //Chama o método que retorna 
         //todos registros do banco de dados
-        lista = dao.listar();
+        lista = dao.listarNative();
     }
     
     

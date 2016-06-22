@@ -1,12 +1,11 @@
-package org.apache.jsp.Admin.equipe;
+package org.apache.jsp.Admin.categoria;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import modelo.Heroi;
-import modelo.Equipe;
+import modelo.Categoria;
 import java.util.List;
-import dao.EquipeDAO;
+import dao.CategoriaDAO;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -17,7 +16,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   static {
     _jspx_dependants = new java.util.ArrayList<String>(1);
-    _jspx_dependants.add("/Admin/equipe/../cabecalho.jsp");
+    _jspx_dependants.add("/Admin/categoria/../cabecalho.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -83,30 +82,50 @@ if(session.getAttribute("usuario") == null)
       out.write("            <a href=\"../regiao\">Região</a>\n");
       out.write("        </nav>");
       out.write('\n');
+      out.write('\n');
 
-    EquipeDAO dao = new EquipeDAO();
-    List<Equipe> lista = dao.listar();
+    //Instanciar a DAO
+    CategoriaDAO dao = new CategoriaDAO();
+    //Verificar se veio algo no filtro
+    //se vier passamos o filtro pra DAO
+    //se não tiver filtro traz todos registros
+    List<Categoria> lista;
+    if(request.getParameter("txtFiltro") !=null)
+    {
+        lista = dao.listar(request.getParameter("txtFiltro"));
+    }
+    else
+    {
+        //Chama o método que retorna 
+        //todos registros do banco de dados
+        lista = dao.listarNative();
+    }
+    
+    
+    
+    
+    
+
 
       out.write("\n");
-      out.write("        <h1 class=\"centro\">Equipe</h1>\n");
+      out.write("        <h1 class=\"centro\">Categoria</h1>\n");
       out.write("        <div>\n");
       out.write("                +<a href=\"add.jsp\">Novo</a><br />\n");
-      out.write("                <form>\n");
-      out.write("                    <input type=\"text\" placeholder=\"digite o texto da pesquisa\" />\n");
+      out.write("                <form method=\"post\">\n");
+      out.write("                    <!--  Monta o filtro  -->\n");
+      out.write("                    <input type=\"text\" name=\"txtFiltro\" \n");
+      out.write("                           placeholder=\"digite o texto da pesquisa\" />\n");
       out.write("                    <input type=\"submit\" value=\"Pesquisar\"/><br />\n");
       out.write("                </form>\n");
       out.write("                    <table>\n");
       out.write("                        <tr>\n");
       out.write("                            <th>Código</th>\n");
       out.write("                            <th>Nome</th>\n");
-      out.write("                             <th>Descrição</th>\n");
-      out.write("                             <th>Heróis</th>\n");
-      out.write("                           \n");
       out.write("                            <th>Ações</th>\n");
       out.write("                        </tr>\n");
       out.write("                        ");
-
-                        for(Equipe item:lista)
+  
+                        for(Categoria item: lista)
                         {
                         
       out.write("\n");
@@ -117,26 +136,13 @@ if(session.getAttribute("usuario") == null)
       out.write("                            <td>");
       out.print(item.getNome());
       out.write("</td>\n");
-      out.write("                            <td>");
-      out.print(item.getDescricao());
-      out.write("</td>\n");
-      out.write("                            <td>\n");
-      out.write("                                ");
-
-                                for(Heroi heroi:item.getHeroiList())
-                                {
-                                
-                                    out.print(heroi.getNome() + ",");
-                                
-                                
-                                }
-                                
-      out.write("\n");
       out.write("                            \n");
-      out.write("                            </td>\n");
-      out.write("                            \n");
-      out.write("                            <td><a href=\"upd.jsp\">Editar</a>\n");
-      out.write("                                <a href=\"del-ok.jsp\">Excluir</a>\n");
+      out.write("                            <td><a href=\"upd.jsp?codigo=");
+      out.print(item.getCodigo());
+      out.write("\">Editar</a>\n");
+      out.write("                                <a href=\"del-ok.jsp?codigo=");
+      out.print(item.getCodigo());
+      out.write("\">Excluir</a>\n");
       out.write("                            </td>\n");
       out.write("                            \n");
       out.write("                        </tr>\n");

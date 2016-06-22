@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -29,6 +30,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c"),
     @NamedQuery(name = "Categoria.findFilter", query = "SELECT c FROM Categoria c WHERE c.nome like :filtro")
 })
+@NamedNativeQuery(name = "nativeSQL", query = "SELECT * FROM categoria order by RANDOM()", resultClass = Categoria.class)
 public class Categoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
